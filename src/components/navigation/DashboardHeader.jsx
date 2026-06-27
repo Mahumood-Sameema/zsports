@@ -25,7 +25,7 @@ export const DashboardHeader = ({ onMenuClick, title = 'Dashboard' }) => {
   };
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 w-full items-center justify-between border-b border-neutral-200 bg-white px-4 md:px-6 shadow-sm select-none">
+    <header style={{ height: '72px', minHeight: '72px' }} className="sticky top-0 z-30 flex shrink-0 w-full items-center justify-between border-b border-neutral-200 bg-white px-6 shadow-sm select-none">
       {/* Mobile Menu Icon + Title */}
       <div className="flex items-center gap-3">
         <button
@@ -34,7 +34,7 @@ export const DashboardHeader = ({ onMenuClick, title = 'Dashboard' }) => {
         >
           <Menu size={20} />
         </button>
-        <h1 className="text-base font-bold text-neutral-800 md:text-lg leading-none">
+        <h1 className="text-lg font-bold text-neutral-800 leading-none">
           {title}
         </h1>
       </div>
@@ -42,7 +42,7 @@ export const DashboardHeader = ({ onMenuClick, title = 'Dashboard' }) => {
       {/* Right side actions */}
       <div className="flex items-center gap-4">
         {/* Notification Bell */}
-        <Link 
+        <Link
           to={role === 'customer' ? '/dashboard/customer/notifications' : role === 'admin' ? '/dashboard/admin/notifications' : '/dashboard/staff/notifications'}
           className="relative text-neutral-500 hover:text-neutral-700 p-1.5 rounded-full hover:bg-slate-50 transition-colors"
         >
@@ -69,7 +69,7 @@ export const DashboardHeader = ({ onMenuClick, title = 'Dashboard' }) => {
                   <p className="text-xs font-bold text-neutral-800 truncate">{currentUser?.displayName}</p>
                   <p className="text-[10px] text-neutral-500 uppercase tracking-wider font-semibold mt-0.5">{role}</p>
                 </div>
-                
+
                 <Link
                   to={getProfilePath()}
                   onClick={() => setShowDropdown(false)}
