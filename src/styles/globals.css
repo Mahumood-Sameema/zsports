@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-neutral-900 font-sans antialiased min-h-screen selection:bg-primary-light selection:text-primary;
+  }
+}
+
+/* Custom Calendar and Layout Styles */
+.rbc-calendar {
+  @apply font-sans border-0 rounded-xl overflow-hidden bg-white shadow-md p-4;
+}
+
+.rbc-header {
+  @apply py-3 font-semibold text-neutral-700 bg-slate-50 border-b border-neutral-200 text-sm;
+}
+
+.rbc-event {
+  @apply transition-all duration-200 hover:scale-[1.02] border-0 rounded font-medium text-xs py-1 px-2 shadow-sm;
+}
+
+.rbc-off-range-bg {
+  @apply bg-slate-50/50;
+}
+
+.rbc-today {
+  @apply bg-primary-light/20;
+}
+
+/* Shimmer skeleton styling */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Glassmorphism utils */
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-md border border-white/20;
+}
+
+.glass-dark {
+  @apply bg-slate-900/85 backdrop-blur-lg border border-slate-800;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-200 rounded-full hover:bg-neutral-500 transition-colors;
+}
